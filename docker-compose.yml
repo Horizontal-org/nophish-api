@@ -61,7 +61,7 @@ services:
     volumes:
       - db-data:/var/lib/mysql
     networks:
-      - nestjs-network
+      - nestjs-networ
 
 networks:
   nestjs-network:
