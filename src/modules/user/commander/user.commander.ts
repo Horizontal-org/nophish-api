@@ -9,6 +9,7 @@ import {
   TYPES,
 } from '../interfaces';
 import { Role } from '../domain/role.enum';
+import { hashPassword } from 'src/utils/password.utils';
 
 @Injectable()
 export class UserCommander {
@@ -51,7 +52,7 @@ export class UserCommander {
     
     const user = await this.createUserApplication.execute({
       email: username,
-      password: password.toString(),
+      password: await hashPassword(password.toString()),
       role: roleSlug
     });
 
